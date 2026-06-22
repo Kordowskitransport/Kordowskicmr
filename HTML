@@ -90,3 +90,118 @@ function sendMessage(){
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMR Kontakt</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
+
+.box{
+width:400px;
+background:#1e293b;
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+color:#60a5fa;
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+background:#334155;
+color:white;
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+background:#2563eb;
+color:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1d4ed8;
+}
+
+#status{
+margin-top:15px;
+text-align:center;
+color:#22c55e;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+
+<h1>📦 CMR Formularz</h1>
+
+<input type="text" id="name" placeholder="Twój nick">
+
+<input type="text" id="topic" placeholder="Temat">
+
+<textarea id="message" placeholder="Wpisz wiadomość"></textarea>
+
+<button onclick="sendMessage()">Wyślij</button>
+
+<p id="status"></p>
+
+</div>
+
+<script>
+
+function sendMessage(){
+
+let name=document.getElementById("name").value;
+let topic=document.getElementById("topic").value;
+let message=document.getElementById("message").value;
+
+if(name=="" || topic=="" || message==""){
+document.getElementById("status").innerHTML="Uzupełnij wszystkie pola!";
+return;
+}
+
+document.getElementById("status").innerHTML="✅ Wiadomość została przygotowana.";
+
+}
+
+</script>
+
+</body>
+</html>
