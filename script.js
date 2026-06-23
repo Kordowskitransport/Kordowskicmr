@@ -107,3 +107,28 @@ lista.innerHTML += `
 }
 
 wyswietlUserow();
+function zaloguj() {
+
+    let login = document.getElementById("login").value;
+    let haslo = document.getElementById("haslo").value;
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    let user = users.find(u =>
+        u.login === login &&
+        u.haslo === haslo
+    );
+
+    if(user){
+
+        localStorage.setItem("zalogowany", login);
+
+        window.location.href = "index.html";
+
+    } else {
+
+        document.getElementById("blad").innerHTML =
+        "Nieprawidłowy login lub hasło";
+
+    }
+}
