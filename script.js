@@ -20,3 +20,24 @@ if (!numer) {
 
 document.getElementById("numerCMR").innerHTML =
 "Numer CMR: CMR-2026-" + String(numer).padStart(6, "0");
+function zapiszCMR() {
+
+let dokument = {
+    numer: "CMR-" + Date.now(),
+    nadawca: document.getElementById("nadawca").value,
+    odbiorca: document.getElementById("odbiorca").value,
+    kierowca: document.getElementById("kierowca").value,
+    towar: document.getElementById("towar").value,
+    waga: document.getElementById("waga").value
+};
+
+let dokumenty =
+JSON.parse(localStorage.getItem("cmr")) || [];
+
+dokumenty.push(dokument);
+
+localStorage.setItem("cmr",
+JSON.stringify(dokumenty));
+
+alert("Dokument zapisany!");
+}
