@@ -41,3 +41,26 @@ JSON.stringify(dokumenty));
 
 alert("Dokument zapisany!");
 }
+let dokumenty =
+JSON.parse(localStorage.getItem("cmr")) || [];
+
+let tabela = document.getElementById("listaCMR");
+
+if(tabela){
+
+dokumenty.forEach(cmr => {
+
+tabela.innerHTML += `
+<tr>
+<td>${cmr.numer}</td>
+<td>${cmr.nadawca}</td>
+<td>${cmr.odbiorca}</td>
+<td>${cmr.kierowca}</td>
+<td>${cmr.towar}</td>
+<td>${cmr.waga}</td>
+</tr>
+`;
+
+});
+
+}
