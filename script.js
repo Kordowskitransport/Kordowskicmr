@@ -64,3 +64,46 @@ tabela.innerHTML += `
 });
 
 }
+function dodajUzytkownika(){
+
+let login = document.getElementById("nowyLogin").value;
+let haslo = document.getElementById("noweHaslo").value;
+
+let users =
+JSON.parse(localStorage.getItem("users")) || [];
+
+users.push({
+login: login,
+haslo: haslo
+});
+
+localStorage.setItem("users", JSON.stringify(users));
+
+wyswietlUserow();
+
+}
+
+function wyswietlUserow(){
+
+let users =
+JSON.parse(localStorage.getItem("users")) || [];
+
+let lista = document.getElementById("listaUserow");
+
+if(lista){
+
+lista.innerHTML="";
+
+users.forEach(user=>{
+
+lista.innerHTML += `
+<p>${user.login}</p>
+`;
+
+});
+
+}
+
+}
+
+wyswietlUserow();
