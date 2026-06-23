@@ -12,3 +12,11 @@ else{
 }
 
 }
+let numer = localStorage.getItem("numerCMR");
+
+if (!numer) {
+    numer = 1;
+}
+
+document.getElementById("numerCMR").innerHTML =
+"Numer CMR: CMR-2026-" + String(numer).padStart(6, "0");
